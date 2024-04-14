@@ -303,22 +303,29 @@
             <div class="h-[90%] w-full flex justify-center items-center flex-col">
             {#if falseAnswer == false}
                 {#if languageName != languageNameEng}
-                    <div class="h-fit w-fit text-2xl md:text-5xl text-neutral-900 dark:text-neutral-200 m-1 md:m-2">
+                    <div class="h-fit w-fit text-8xl md:text-9xl text-neutral-900 dark:text-neutral-200 m-1 md:m-2">
+                    {countryEmoji}
+                    </div>
+                    <div class="h-fit w-fit text-4xl md:text-5xl text-neutral-900 dark:text-neutral-200 m-1 md:m-2">
                         {"Native: " + languageName}
                     </div>
-                    <div class="h-fit w-fit text-2xl md:text-5xl text-neutral-900 dark:text-neutral-200 m-1 md:m-2">
+                    <div class="h-fit w-fit text-4xl md:text-5xl text-neutral-900 dark:text-neutral-200 m-1 md:m-2">
                         {"English: " + languageNameEng}
                     </div>
                 {/if}
                 {#if languageName == languageNameEng}
-                    <div class="h-fit w-fit text-3xl md:text-5xl text-neutral-900 dark:text-neutral-200 m-1 md:m-2">
+                    <div class="h-fit w-fit text-8xl md:text-9xl text-neutral-900 dark:text-neutral-200 m-1 md:m-2">
+                    {countryEmoji}
+                    </div>
+                    <div class="h-fit w-fit text-4xl md:text-5xl text-neutral-900 dark:text-neutral-200 m-1 md:m-2">
                         {languageNameEng}
                     </div>
+                    
                 {/if}
-                <div class="h-[10%] w-1/2 md:w-1/4 bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-200 text-4xl rounded-md m-3">
+                <div class="h-20 w-3/4 md:w-1/4 bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-200 text-4xl rounded-md m-3">
                     <input class="bg-transparent h-full w-full active:border-2 active-border-neutral-700" bind:this={inputValue}>
                 </div>
-                <button class="h-[5%] w-1/6 bg-green-200 dark:bg-green-800 rounded-md m-3 text-neutral-900 dark:text-neutral-200 text-2xl" on:click={() => questionHandler(inputValue.value)}>
+                <button class="h-14 w-1/6 bg-green-200 dark:bg-green-800 rounded-md m-3 text-neutral-900 dark:text-neutral-200 text-2xl" on:click={() => questionHandler(inputValue.value)}>
                     Guess
                 </button>
             {/if}
