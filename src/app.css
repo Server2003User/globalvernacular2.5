@@ -19,7 +19,15 @@
     }
   }
 
-  .switch {
+   * {
+
+    font-family: "Jersey 15", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+   }
+
+   .switch {
     --button-width: 3.5em;
     --button-height: 2em;
     --toggle-diameter: 1.5em;
@@ -27,7 +35,7 @@
     --toggle-shadow-offset: 10px;
     --toggle-wider: 3em;
     --color-grey: #cccccc;
-    --color-green: #1feb66;
+    --color-green: #1aaf2e;
    }
    
    .slider {
@@ -74,11 +82,4 @@
    .switch input[type="checkbox"]:checked:active + .slider::after {
     transform: translateX(calc(var(--button-width) - var(--toggle-wider) - var(--button-toggle-offset)));
    }
-
-   * {
-
-    font-family: "Jersey 15", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-
-   }
+   

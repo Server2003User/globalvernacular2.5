@@ -3,8 +3,8 @@
     import { onMount } from 'svelte';
     export let SetName;
     let check;
-    const setting = document.cookie.split("; ").find((row) => row.startsWith(SetName + "="));
-
+    let setting = undefined;
+    
     import { createEventDispatcher } from "svelte";
 
     const dispatch = createEventDispatcher();
@@ -19,7 +19,13 @@
     }
 
     onMount(() => {
-        console.log(setting);
+        if (document.cookie != undefined) {
+            
+            setting = document.cookie.split("; ").find((row) => row.startsWith(SetName + "="));
+        
+        }
+        let cookieString = SetName + "=false";
+        document.cookie = cookieString;
 		if (setting == undefined) {
             check = false;
         } else if (setting == SetName + "=false") {

@@ -1,10 +1,6 @@
 <script>
     import "../app.css";
     import Settingsicon from "../lib/components/settingsicon.svelte";
-    // @ts-ignore
-    import Leaderboardicon from "../lib/components/leaderboardicon.svelte";
-    import Profileicon from "../lib/components/profileicon.svelte";
-    
 </script>
   
 <div class="global-font h-dvh w-dvw flex flex-col dark:bg-neutral-900 overflow-hidden">

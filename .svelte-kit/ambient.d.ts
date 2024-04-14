@@ -59,7 +59,6 @@ declare module '$env/static/private' {
 	export const LSCOLORS: string;
 	export const PATH: string;
 	export const npm_package_json: string;
-	export const npm_config_engine_strict: string;
 	export const _: string;
 	export const VSCODE_INSPECTOR_OPTIONS: string;
 	export const npm_config_userconfig: string;
@@ -113,8 +112,7 @@ declare module '$env/static/private' {
  * ```
  */
 declare module '$env/static/public' {
-	export const PUBLIC_SUPABASE_URL: string;
-	export const PUBLIC_SUPABASE_ANON_KEY: string;
+	
 }
 
 /**
@@ -166,7 +164,6 @@ declare module '$env/dynamic/private' {
 		LSCOLORS: string;
 		PATH: string;
 		npm_package_json: string;
-		npm_config_engine_strict: string;
 		_: string;
 		VSCODE_INSPECTOR_OPTIONS: string;
 		npm_config_userconfig: string;
@@ -227,8 +224,6 @@ declare module '$env/dynamic/private' {
  */
 declare module '$env/dynamic/public' {
 	export const env: {
-		PUBLIC_SUPABASE_URL: string;
-		PUBLIC_SUPABASE_ANON_KEY: string;
 		[key: `PUBLIC_${string}`]: string | undefined;
 	}
 }

@@ -8,8 +8,6 @@
     // @ts-ignore
     import languageNamesEng from 'countries-list/minimal/languages.en.min';
     
-    import type { TCountryCode } from 'countries-list';
-    
     function sleep(time) {
       return new Promise((resolve) => setTimeout(resolve, time));
     }
@@ -43,7 +41,6 @@
     function easyOrHard() {
     
         const storedHard = document.cookie.split("; ").find((row) => row.startsWith("Hard Mode" + "=")).split("=")[1];
-        console.log(storedHard);
         if (storedHard == undefined) {
             difficulty = false;
         } else if (storedHard == "false") {
@@ -137,7 +134,6 @@
         
         if (countryCode !== false) {
             countryEmoji = getEmojiFlag(countryCode);
-            console.log(countryEmoji); 
         } 
     
     }
@@ -184,8 +180,6 @@
         } else if (choice == 4) {
             multiQuestionHandler(randomNation4.languages);
         } else {
-            console.log(choice);
-            console.log(nationChoice);
             inputQuestionHandler(choice);
         }
     
@@ -235,36 +229,23 @@
     
     <div class="h-full w-full grid grid-cols-4 grid-rows-4">
         {#if !difficulty}
-        <div class="h-full w-full grid grid-cols-1 grid-rows-4 row-span-4 col-start-1">
-            <button on:click={() => questionHandler(1)} class="h-full w-full bg-red-400 hover:bg-red-500 dark:bg-red-800 dark:hover:bg-red-900  text-neutral-900 hover:text-neutral-900/50 dark:text-neutral-200 hover:dark:text-neutral-200/50  text-xl md:text-3xl">
-                { randomNation1.name || "N/A"}
-            </button>
-            <button on:click={() => questionHandler(2)} value="randomNation2" class="h-full w-full bg-green-400 hover:bg-green-500 dark:bg-green-800 dark:hover:bg-green-900  text-neutral-900 hover:text-neutral-900/50 dark:text-neutral-200 hover:dark:text-neutral-200/50  text-xl md:text-3xl">
-                { randomNation2.name || "N/A"}
-            </button>
-            <button on:click={() => questionHandler(3)} value="randomNation3" class="h-full w-full bg-cyan-400 hover:bg-cyan-500 dark:bg-cyan-800 dark:hover:bg-cyan-900 text-neutral-900 hover:text-neutral-900/50 dark:text-neutral-200 hover:dark:text-neutral-200/50  text-xl md:text-3xl">
-                { randomNation3.name || "N/A"}
-            </button>
-            <button on:click={() => questionHandler(4)} value="randomNation4" class="h-full w-full bg-yellow-400 hover:bg-yellow-500 dark:bg-yellow-600 dark:hover:bg-yellow-700 text-neutral-900 hover:text-neutral-900/50 dark:text-neutral-200 hover:dark:text-neutral-200/50  text-xl md:text-3xl">
-                { randomNation4.name || "N/A"}
-            </button>
-        </div>
-        <div class="h-full w=[50%] row-span-4 col-start-2 col-span-3 flex flex-col justify-start items-center">
-            <div class="h-[10%] w-full mx-1 text-md md:text-2xl flex flex-row items-center justify-center  bg-neutral-200 dark:bg-neutral-800">
-                <div class="text-green-900 dark:text-green-300 m-1">
+        
+        <div class="h-full w-full row-start-1 row-span-3 col-span-4 flex flex-col justify-start items-center">
+            <div class="h-28 w-full mx-1 text-lg md:text-4xl flex flex-row items-center justify-center bg-neutral-200 dark:bg-neutral-800">
+                <div class="text-green-900 dark:text-green-300 m-1 mx-3">
                     Right: {correctScore}
                 </div>
-                <div class="text-red-800 dark:text-red-300 m-1">
+                <div class="text-red-800 dark:text-red-300 m-1 mx-3">
                     Wrong: {falseScore}
                 </div>
-                <div class="text-neutral-800 dark:text-neutral-300 m-1">
+                <div class="text-neutral-800 dark:text-neutral-300 m-1 mx-3">
                     Time: {tmString + ":" + tsString}
                 </div>
-                <div class="text-neutral-800 dark:text-neutral-300 m-1">
+                <div class="text-neutral-800 dark:text-neutral-300 m-1 mx-3">
                     Total Time: {ttmString + ":" + ttseString}
                 </div>
             </div>
-            <div class="h-[90%] w-full flex justify-center items-center flex-col">
+            <div class="h-full w-full flex justify-center items-center flex-col">
             {#if falseAnswer == false}
                 {#if languageName != languageNameEng}
                     <div class="h-fit w-fit text-3xl md:text-5xl text-neutral-900 dark:text-neutral-200 m-1 md:m-2">
@@ -287,30 +268,45 @@
             {/if}
             </div>
         </div>
+        <div class="h-full w-full grid grid-cols-4 grid-rows-1 col-span-4 col-start-1 row-start-4">
+            <button on:click={() => questionHandler(1)} class="h-full w-full bg-red-400 hover:bg-red-500 dark:bg-red-800 dark:hover:bg-red-900  text-neutral-900 hover:text-neutral-900/50 dark:text-neutral-200 hover:dark:text-neutral-200/50  text-xl md:text-3xl">
+                { randomNation1.name || "N/A"}
+            </button>
+            <button on:click={() => questionHandler(2)} value="randomNation2" class="h-full w-full bg-green-400 hover:bg-green-500 dark:bg-green-800 dark:hover:bg-green-900  text-neutral-900 hover:text-neutral-900/50 dark:text-neutral-200 hover:dark:text-neutral-200/50  text-xl md:text-3xl">
+                { randomNation2.name || "N/A"}
+            </button>
+            <button on:click={() => questionHandler(3)} value="randomNation3" class="h-full w-full bg-cyan-400 hover:bg-cyan-500 dark:bg-cyan-800 dark:hover:bg-cyan-900 text-neutral-900 hover:text-neutral-900/50 dark:text-neutral-200 hover:dark:text-neutral-200/50  text-xl md:text-3xl">
+                { randomNation3.name || "N/A"}
+            </button>
+            <button on:click={() => questionHandler(4)} value="randomNation4" class="h-full w-full bg-yellow-400 hover:bg-yellow-500 dark:bg-yellow-600 dark:hover:bg-yellow-700 text-neutral-900 hover:text-neutral-900/50 dark:text-neutral-200 hover:dark:text-neutral-200/50  text-xl md:text-3xl">
+                { randomNation4.name || "N/A"}
+            </button>
+        </div>
         {/if}
+        <!-- On top is Multi-Choice (easy), bottom is Written (hard) -->
         {#if difficulty}
         <div class="h-full w-full row-span-4 col-start-1 col-span-4 flex flex-col justify-center items-center">
-            <div class="h-[10%] w-full mx-1 text-md md:text-2xl flex flex-row items-center justify-center  bg-neutral-200 dark:bg-neutral-800">
-                <div class="text-green-900 dark:text-green-300 m-1">
+            <div class="h-28 w-full mx-1 text-lg md:text-4xl flex flex-row items-center justify-center bg-neutral-200 dark:bg-neutral-800">
+                <div class="text-green-900 dark:text-green-300 m-1 mx-3">
                     Right: {correctScore}
                 </div>
-                <div class="text-red-800 dark:text-red-300 m-1">
+                <div class="text-red-800 dark:text-red-300 m-1 mx-3">
                     Wrong: {falseScore}
                 </div>
-                <div class="text-neutral-800 dark:text-neutral-300 m-1">
+                <div class="text-neutral-800 dark:text-neutral-300 m-1 mx-3">
                     Time: {tmString + ":" + tsString}
                 </div>
-                <div class="text-neutral-800 dark:text-neutral-300 m-1">
+                <div class="text-neutral-800 dark:text-neutral-300 m-1 mx-3">
                     Total Time: {ttmString + ":" + ttseString}
                 </div>
             </div>
             <div class="h-[90%] w-full flex justify-center items-center flex-col">
             {#if falseAnswer == false}
                 {#if languageName != languageNameEng}
-                    <div class="h-fit w-fit text-3xl md:text-5xl text-neutral-900 dark:text-neutral-200 m-1 md:m-2">
+                    <div class="h-fit w-fit text-2xl md:text-5xl text-neutral-900 dark:text-neutral-200 m-1 md:m-2">
                         {"Native: " + languageName}
                     </div>
-                    <div class="h-fit w-fit text-3xl md:text-5xl text-neutral-900 dark:text-neutral-200 m-1 md:m-2">
+                    <div class="h-fit w-fit text-2xl md:text-5xl text-neutral-900 dark:text-neutral-200 m-1 md:m-2">
                         {"English: " + languageNameEng}
                     </div>
                 {/if}

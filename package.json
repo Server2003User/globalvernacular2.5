@@ -21,9 +21,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@supabase/auth-helpers-sveltekit": "^0.13.0",
-		"@supabase/ssr": "^0.3.0",
-		"@supabase/supabase-js": "^2.42.3",
 		"@types/lodash": "^4.17.0",
 		"@types/node": "^20.12.7",
 		"autoprefixer": "^10.4.19",

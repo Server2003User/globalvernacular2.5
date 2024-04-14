@@ -2,15 +2,15 @@
     
     //@ts-ignore
     import Settingsrow from "/src/lib/components/settingsrow.svelte";
-    
+
     function sendSetting(e) {
     
         let cookieString = e.detail.choice + "=" + e.detail.tof;
         document.cookie = cookieString;
     
-    }
+     }
 
-    </script>
+</script>
     
     <div class="w-full h-[90%] flex flex-col items-center">
     
