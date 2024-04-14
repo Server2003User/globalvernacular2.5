@@ -1,7 +1,11 @@
 <script lang="ts">
     
     import { onMount } from 'svelte';
+    
+    // exports the name of the setting
     export let SetName;
+
+    // initializes variables for checkbox and the cookie setting
     let check;
     let setting = undefined;
     
@@ -9,6 +13,7 @@
 
     const dispatch = createEventDispatcher();
 
+    // dispatches the setting with the setting name and whether it is true or false to the main settings
     export const selectSetting = (SetName, bool) => {
 
         dispatch("selectedSetting", {
@@ -19,13 +24,12 @@
     }
 
     onMount(() => {
+        // checks whether theres a cookie and checks if its 
         if (document.cookie != undefined) {
-            
             setting = document.cookie.split("; ").find((row) => row.startsWith(SetName + "="));
-        
         }
-        let cookieString = SetName + "=false";
-        document.cookie = cookieString;
+
+        // checkbox handling; only sets the checkbox true when explicitly the setting is true
 		if (setting == undefined) {
             check = false;
         } else if (setting == SetName + "=false") {
@@ -35,6 +39,7 @@
         }   
 	});
 
+    // actively waits for the check to change for it to do the dispatch function
     $: {
         
         if (check) {

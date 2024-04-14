@@ -3,6 +3,7 @@
     //@ts-ignore
     import Settingsrow from "/src/lib/components/settingsrow.svelte";
 
+    // takes dispatched data and puts it in to cookies
     function sendSetting(e) {
     
         let cookieString = e.detail.choice + "=" + e.detail.tof;
